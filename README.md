@@ -1,4 +1,4 @@
-# Kaggle-Titanic_challenge
+# Kaggle-Housing Prices Challenge
 
 Housing Prices Competition for Kaggle Learn Users
 
