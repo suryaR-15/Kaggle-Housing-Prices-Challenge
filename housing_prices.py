@@ -33,7 +33,7 @@ train_data = pd.read_csv(train_data_path)
 
 X, y = feature_eng(train_data)
 
-model = XGBRegressor(learning_rate=0.01, n_estimators=600,
+model = XGBRegressor(learning_rate=0.01, n_estimators=1000,
                      max_depth=4, min_child_weight=2,
                      subsample=0.7, colsample_bytree=0.5,
                      objective='reg:squarederror', scale_pos_weight=1)
@@ -43,7 +43,7 @@ scores = cross_validate(model, X, y, cv=15, return_estimator=True,
 print("Accuracy on validation data:")
 print(scores['test_score'])
 max_acc = np.argmax(scores['test_score']) + 1
-print("Minimum mean squared error from estimator number {0} - {1:.2f} "
+print("Best r^2 value from estimator number {0} - {1:.2f} "
       .format(max_acc, scores['test_score'][max_acc-1]))
 best_model = scores['estimator'][max_acc - 1]
 
@@ -59,5 +59,8 @@ output = pd.DataFrame({'Id': test_data.Id,
 output.to_csv('my_submission.csv', index=False)
 print("Your predictions were successfully saved!")
 
-os.system('kaggle competitions submit -c home-data-for-ml-course -f \
-          my_submission.csv -m "Submitted to Kaggle"')
+# =============================================================================
+# Uncomment to submit to Kaggle competition - need Kaggle API installed
+# =============================================================================
+# os.system('kaggle competitions submit -c home-data-for-ml-course -f \
+#          my_submission.csv -m "Submitted to Kaggle"')
