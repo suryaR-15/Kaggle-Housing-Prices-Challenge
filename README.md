@@ -6,4 +6,4 @@ https://www.kaggle.com/c/home-data-for-ml-course/overview
 
 Current model using XGB regressor
 
-Leaderboard position: 7797 (top 20%)
+Leaderboard position: 4949 (top 13%)

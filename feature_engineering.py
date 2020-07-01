@@ -9,7 +9,7 @@ Feature engineering module for the housing prices challenge in Kaggle.
 feature_eng()
 input: dataframe (can be train/validation data or test data)
 output: X - dataframe containing features after feature engineering
-        y - list containing 'Survived' labels for train/validation data
+        y - list containing 'SalePrice' values for train/validation data
           - set to 0 for test data
 
 Module contains two functions:
@@ -27,9 +27,7 @@ data so as to perform as best as possible on the test data.
 
 import pandas as pd
 import seaborn as sns
-from matplotlib import pyplot as plt
 from sklearn.impute import SimpleImputer
-from sklearn.preprocessing import LabelEncoder
 
 
 def plot_features(X, selected_columns):

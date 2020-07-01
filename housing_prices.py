@@ -4,13 +4,15 @@ Created on Mon Jun 29 13:26:32 2020
 
 @author: surya
 
-Kaggle housing prices challenge - https://www.kaggle.com/c/home-data-for-ml-course/overview
+Kaggle housing prices challenge
+https://www.kaggle.com/c/home-data-for-ml-course/overview
 
 XGB Classifier has been used after feature engineering
 Cross-validation approach used; best model used to predict labels on test data
 
-Kaggle score (likely MSE) achieved using this version of the code - 16419.47 
+Kaggle score (likely MSE) achieved using this version of the code - 16167.14
 """
+
 import os
 import pandas as pd
 import numpy as np
@@ -33,7 +35,7 @@ train_data = pd.read_csv(train_data_path)
 
 X, y = feature_eng(train_data)
 
-model = XGBRegressor(learning_rate=0.01, n_estimators=1000,
+model = XGBRegressor(learning_rate=0.01, n_estimators=2000,
                      max_depth=4, min_child_weight=2,
                      subsample=0.7, colsample_bytree=0.5,
                      objective='reg:squarederror', scale_pos_weight=1)
